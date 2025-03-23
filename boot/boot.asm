@@ -22,7 +22,7 @@ read_disk:
 
 	; 读取成功则跳转到0x7e00处执行
 	jmp 0x7e00
-	
-	
+
+
 times 510 - ($ - $$) db 0
 dw 0xAA55

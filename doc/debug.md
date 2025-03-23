@@ -10,7 +10,9 @@ make debug
 make gdb-kernel
 ```
   
-如果想要调试boot.asm，可以使用如下命令:  
+如果想要调试boot.asm，可以使用如下命令，该命令是将断点打在0x7c00处:  
 ```
 make gdb-boot
 ```
+  
+每次执行make gdb-xxx之前需要重新执行make debug
