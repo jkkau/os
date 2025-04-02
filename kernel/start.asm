@@ -1,9 +1,8 @@
 [bits 16]
 
-global _start
-
 extern kernel_main
 
+global _start
 _start:
     ; 清空屏幕
     mov ax, 0x03

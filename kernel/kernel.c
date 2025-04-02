@@ -1,15 +1,13 @@
+__asm__(".code16gcc");
+
 #include "kernel.h"
 
-// 内核主函数
-void kernel_main()
+void print1(char *str, int len)
 {
-	// print("Hello, world!\n", 0xFF);
-	// char *str = "Hello, world!\n";
-	// static char str[] = "Hello, world!\n";
-	const char *const str = "Hello, world!\n";
 	int i = 0;
-	for (char *p = str; *p != '\0' && i < 5; p++, i++) {
-		unsigned char c = *p;
+	while (i < len)
+	{
+		unsigned char c = str[i++];
 		__asm__ __volatile__(
 
 			"movb %b0, %%al\n"
@@ -20,8 +18,16 @@ void kernel_main()
 			: "q"(c)
 			: "ax", "bx");
 	}
+}
 
-	while (1) {
+// 内核主函数
+void kernel_main()
+{
+	char str[] = "hello";
+	print1(str, 5);
+
+	while (1)
+	{
 		__asm__("hlt");
 	}
 }

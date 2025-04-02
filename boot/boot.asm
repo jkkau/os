@@ -8,7 +8,7 @@ read_disk:
 	; bx = 0x7e00 读取到的内存地址
 	mov bx, 0x7e00
 	; ch = 0 磁道号
-	; cl = 2 扇区号，扇区号1是MBR，就是boot.asm代码所在的位置
+	; cl = 2 扇区号，扇区号1是MBR，就是boot.asm代码所在的位置. 扇区号2是kernel.bin(start.asm + C代码)所在的位置
 	mov cx, 0x0002
 	; al = 1 读取一个扇区
 	; ah = 0x02 读取扇区
