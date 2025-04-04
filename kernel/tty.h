@@ -3,6 +3,6 @@
 
 #include "types.h"
 
-void print(char *str, uint8_t color);
+void print(char *str, int len);
 
 #endif /* _TTY_H */

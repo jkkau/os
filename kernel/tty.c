@@ -1,12 +1,13 @@
+__asm__(".code16gcc");
+
 #include "tty.h"
 
-void print(char *str, uint8_t color)
+void print(char *str, int len)
 {
 	int i = 0;
-	char a[] = "hello";
-	while (i < 5)
+	while (i < len)
 	{
-		unsigned char c = a[i++];
+		unsigned char c = str[i++];
 		__asm__ __volatile__(
 
 			"movb %b0, %%al\n"
