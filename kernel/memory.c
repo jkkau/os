@@ -21,8 +21,8 @@ int 0x15：
 */
 void memory_check()
 {
-    char str[] = "checking memory\r\n";
-    print(str, 17);
+    // char str[] = "checking memory\r\n";
+    // print(str, 17);
 
     int sign32 = 0x534D4150, sign16 = 0xE820;
     int index = 0, signature, bytes;
