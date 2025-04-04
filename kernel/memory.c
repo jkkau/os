@@ -21,28 +21,28 @@ int 0x15：
 */
 void memory_check()
 {
-    // char str[] = "checking memory\r\n";
-    // print(str, 17);
-
-    int sign32 = 0x534D4150, sign16 = 0xE820;
-    int index = 0, signature, bytes;
-    while (1)
-    {
-        memory_raw_t *memory_raw = &memory_info.raws[index];
-        __asm__ __volatile__("int $0x15"
-                             : "=a"(signature), "=c"(bytes), "=b"(index)
-                             : "a"(sign16), "b"(index), "c"(MEMORY_MAX_COUNT), "d"(sign32), "D"(memory_raw));
-        if (signature != sign32)
-        {
-            char str[] = "memory check error!\r\n";
-            print(str, 21);
-        }
-        memory_info.count++;
-        if (index == 0)
-        {
-            char str[] = "memory check success!\r\n";
-            print(str, 23);
-            break;
-        }
-    }
+	int sign32 = 0x534D4150, sign16 = 0xE820;
+	int index = 0, signature, bytes;
+	while (1) {
+		memory_raw_t *memory_raw = &memory_info.raws[index];
+		__asm__ __volatile__("int $0x15"
+							 : "=a"(signature), "=c"(bytes), "=b"(index)
+							 : "a"(sign16), "b"(index), "c"(MEMORY_MAX_COUNT), "d"(sign32), "D"(memory_raw));
+		if (signature != sign32) {
+			char str[] = "memory check error!\r\n";
+			print(str, 21);
+			break;
+		}
+		memory_info.count++;
+		if (index == 0) {
+			char str[] = "memory check success!\r\n";
+			print(str, 23);
+			break;
+		}
+	}
 }
+
+// memory_info_t *get_memory_info()
+// {
+//     return &memory_info;
+// }

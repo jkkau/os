@@ -40,7 +40,8 @@ os.img: boot.bin kernel.bin
 
 debug: os.img boot.elf kernel.elf
 	# qemu-system-x86_64 -hda $< -s -S
-	qemu-system-x86_64 -s -S -m 128M -drive file=os.img,index=0,media=disk,format=raw
+	# qemu-system-x86_64 -s -S -m 128M -drive file=os.img,index=0,media=disk,format=raw
+	qemu-system-i386 -s -S -m 128M -drive file=os.img,index=0,media=disk,format=raw
 
 gdb-boot: boot.elf
 	gdb boot.elf \
@@ -64,7 +65,8 @@ show:
 
 qemu: os.img
 	# qemu-system-x86_64 -hda $<
-	qemu-system-x86_64 -m 128M -drive file=os.img,index=0,media=disk,format=raw
+	# qemu-system-x86_64 -m 128M -drive file=os.img,index=0,media=disk,format=raw
+	qemu-system-i386 -m 128M -drive file=os.img,index=0,media=disk,format=raw
 
 clean:
 	rm -f *.o *.bin *.img *.elf
