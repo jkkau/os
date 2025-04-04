@@ -8,6 +8,8 @@ void kernel_main()
 	char str[] = "os starting\r\n";
 	print(str, 13);
 
+	// memory_check();
+
 	while (1)
 	{
 		__asm__("hlt");

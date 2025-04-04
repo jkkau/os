@@ -5,8 +5,7 @@ __asm__(".code16gcc");
 void print(char *str, int len)
 {
 	int i = 0;
-	while (i < len)
-	{
+	while (i < len) {
 		unsigned char c = str[i++];
 		__asm__ __volatile__(
 
