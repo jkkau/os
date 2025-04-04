@@ -12,7 +12,7 @@ read_disk:
 	mov cx, 0x0002
 	; al = 1 读取一个扇区
 	; ah = 0x02 读取扇区
-	mov ax, 0x201
+	mov ax, 0x0208
 	; dh = 0 磁头号
 	; dl = 80H 表示硬盘
 	mov dx, 0x80

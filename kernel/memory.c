@@ -21,7 +21,8 @@ int 0x15：
 */
 void memory_check()
 {
-	int sign32 = 0x534D4150, sign16 = 0xE820;
+	int sign32 = 0x534D4150,
+		sign16 = 0xE820;
 	int index = 0, signature, bytes;
 	while (1) {
 		memory_raw_t *memory_raw = &memory_info.raws[index];
@@ -42,7 +43,7 @@ void memory_check()
 	}
 }
 
-// memory_info_t *get_memory_info()
-// {
-//     return &memory_info;
-// }
+memory_info_t *get_memory_info()
+{
+	return &memory_info;
+}

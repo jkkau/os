@@ -36,7 +36,7 @@ os.img: boot.bin kernel.bin
 	# Write the boot sector
 	dd if=boot.bin of=$@ bs=512 count=1 conv=notrunc
 	# Write the kernel starting at sector 2
-	dd if=kernel.bin of=$@ bs=512 count=1 seek=1 conv=notrunc
+	dd if=kernel.bin of=$@ bs=512 count=8 seek=1 conv=notrunc
 
 debug: os.img boot.elf kernel.elf
 	# qemu-system-x86_64 -hda $< -s -S
