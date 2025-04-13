@@ -10,6 +10,9 @@ void kernel_main()
 
 	memory_check();
 
+	enable_a20();
+	init_gdt();
+
 	while (1) {
 		__asm__("hlt");
 	}

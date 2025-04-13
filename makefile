@@ -18,7 +18,7 @@ OBJS = $(SRCS:.c=.o)
 
 # 通用的 .c 文件编译规则
 %.o: %.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 start.o: kernel/start.asm
 	$(ASM) $(ASMFLAGS) $< -o $@
@@ -70,6 +70,7 @@ qemu: os.img
 
 clean:
 	rm -f *.o *.bin *.img *.elf
+	rm kernel/*.o
 
 format:
 	astyle --style=kr --indent=force-tab=4 kernel/*.c

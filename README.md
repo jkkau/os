@@ -1,8 +1,8 @@
-## Description
+## 描述
 
-This repo is used to record the steps of writing an OS from scratch
+从0开始写一个操作系统
 
-## Chapters
+## 文档
 
 [设置开发环境](./doc/setup_environment.md)  
 [bootloader](./doc/bootloader.md)  

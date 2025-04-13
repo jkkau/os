@@ -10,7 +10,7 @@ read_disk:
 	; ch = 0 磁道号
 	; cl = 2 扇区号，扇区号1是MBR，就是boot.asm代码所在的位置. 扇区号2是kernel.bin(start.asm + C代码)所在的位置
 	mov cx, 0x0002
-	; al = 1 读取一个扇区
+	; al = 0x08 读取8个扇区
 	; ah = 0x02 读取扇区
 	mov ax, 0x0208
 	; dh = 0 磁头号
